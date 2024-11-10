@@ -1,5 +1,6 @@
 <?php
 
+// SESUDAH REFACTORING //
 // Class untuk konektivitas basis data
 class DBConnection {
     private $host = 'localhost';

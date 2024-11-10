@@ -2,6 +2,8 @@
 
 require_once "DBConnection.php";
 
+
+// SESUDAH REFACTORING //
 // Class Order
 class Order {
     public $orderId;

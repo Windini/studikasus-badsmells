@@ -5,6 +5,7 @@ require_once "Customer.php";
 require_once "Order.php";
 require_once "Inventory.php";
 
+// SESUDAH REFACTORING //
 // Membuat instance DBConnection
 $dbConnection = new DBConnection();
 
@@ -53,5 +54,3 @@ foreach ($orderItems as $item) {
     echo "<br>Data inventory diperbarui untuk Item ID " . $item['id'] . ":<br>";
     echo "Quantity yang tersisa: " . $inventory->getStock($item['id']) . "<br>";
 }
-
-?>

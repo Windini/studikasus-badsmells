@@ -1,5 +1,6 @@
 <?php
 
+// SESUDAH REFACTORING //
 // Customer class
 class Customer
 {

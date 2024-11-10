@@ -1,5 +1,6 @@
 <?php
 
+// SESUDAH REFACTORING //
 // Class Inventory
 class Inventory {
     private $db;

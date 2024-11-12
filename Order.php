@@ -9,6 +9,7 @@ class Order {
     public $items = [];
     private $db;
 
+    // Dependency injection untuk DatabaseConnection
     public function __construct($custId, $orderDate, $items, DatabaseConnection $db) {
         $this->custId = $custId;
         $this->orderDate = $orderDate;
@@ -34,7 +35,8 @@ class Order {
     
         try {
             $stmt->execute();
-            $this->orderId = $dbConn->lastInsertId(); // Menyimpan ID order yang baru disimpan
+            $this->orderId = $dbConn->lastInsertId(); // menyimpan ID order yang baru disimpan
+            $this->saveOrderItems($dbConn, $this->items);
         } catch (PDOException $e) {
             echo 'Error: ' . $e->getMessage();
         }

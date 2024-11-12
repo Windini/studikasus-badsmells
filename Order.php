@@ -1,9 +1,6 @@
 <?php
 
 require_once "DBConnection.php";
-
-
-// SESUDAH REFACTORING //
 // Class Order
 class Order {
     public $orderId;
@@ -12,7 +9,7 @@ class Order {
     public $items = [];
     private $db;
 
-    public function __construct($custId, $orderDate, $items, DBConnection $db) {
+    public function __construct($custId, $orderDate, $items, DatabaseConnection $db) {
         $this->custId = $custId;
         $this->orderDate = $orderDate;
         $this->items = $items;

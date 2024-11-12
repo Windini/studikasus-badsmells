@@ -1,11 +1,10 @@
 <?php
 
-// SESUDAH REFACTORING //
 // Class Inventory
 class Inventory {
     private $db;
 
-    public function __construct(DBConnection $db) {
+    public function __construct(DatabaseConnection $db) {
         $this->db = $db; // Dependency injection
     }
 

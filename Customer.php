@@ -2,20 +2,21 @@
 
 // SESUDAH REFACTORING //
 // Customer class
+
 class Customer
 {
     private $id;
     private $name;
-    private $address;
-    private $phone;
+    private $address; // sekarang merupakan instance dari kelas Address
+    private $phone; // sekarang merupakan instance dari kelas PhoneNumber
     private $db;
 
     public function __construct($id, $name, $address, $phone, DBConnection $db)
     {
         $this->id = $id;
         $this->name = $name;
-        $this->address = $address;
-        $this->phone = $phone;
+        $this->address = $address; 
+        $this->phone = $phone; 
         $this->db = $db;
     }
 
@@ -50,5 +51,43 @@ class Customer
     private function handleDatabaseError(PDOException $e)
     {
         echo 'Database Error: ' . $e->getMessage();
+    }
+}
+
+// Kelas Address untuk merepresentasikan data alamat secara lebih terstruktur
+class Address
+{
+    private $street;
+    private $city;
+    private $postalCode;
+
+    public function __construct($street, $city, $postalCode)
+    {
+        $this->street = $street;
+        $this->city = $city;
+        $this->postalCode = $postalCode;
+    }
+
+    public function getFullAddress()
+    {
+        return $this->street . ', ' . $this->city . ', ' . $this->postalCode;
+    }
+}
+
+// Kelas PhoneNumber untuk merepresentasikan dan memvalidasi nomor telepon
+class PhoneNumber
+{
+    private $number;
+
+    public function __construct($number)
+    {
+        // Tambahkan validasi nomor telepon di sini jika diperlukan
+        $this->number = $number;
+    }
+
+    public function getFormattedNumber()
+    {
+        // Format nomor telepon jika diperlukan, misalnya menambahkan kode negara
+        return $this->number;
     }
 }
